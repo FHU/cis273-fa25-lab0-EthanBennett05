@@ -1,4 +1,6 @@
-﻿namespace Uno;
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace Uno;
 
 public enum CardType
 {
@@ -18,13 +20,30 @@ public class Card
 
     public static bool PlaysOn(Card card1, Card card2)
     {
-        return true;
+        return (
+        card1.Color == card2.Color ||
+        card1.Number == card2.Number||
+        card1.Type == CardType.Wild ||
+        card1.Type == CardType.WildDraw4||
+        (card1.Type == CardType.Reverse && card2.Type == CardType.Reverse) ||
+        (card1.Type == CardType.Skip && card2.Type == CardType.Skip) ||
+        (card1.Type == CardType.Draw2 && card2.Type == CardType.Draw2));
     }
-
-
+    
     public override string ToString()
     {
-        return $"{Color} {Number}";
+        if (Color == Color.Wild)
+        {
+            return $"{Type}";
+        }
+        else if (Number == null)
+        {
+            return $"{Color} {Type}";
+        }
+        else
+        {
+            return $"{Color} {Number}";
+        }
     }
 
 }
