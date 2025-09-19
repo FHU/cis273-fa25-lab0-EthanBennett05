@@ -22,12 +22,10 @@ public class Card
     {
         return (
         card1.Color == card2.Color ||
-        card1.Number == card2.Number||
+        (card1.Number == card2.Number && card1.Number != null)||
         card1.Type == CardType.Wild ||
         card1.Type == CardType.WildDraw4||
-        (card1.Type == CardType.Reverse && card2.Type == CardType.Reverse) ||
-        (card1.Type == CardType.Skip && card2.Type == CardType.Skip) ||
-        (card1.Type == CardType.Draw2 && card2.Type == CardType.Draw2));
+        (card1.Type == card2.Type && card1.Type != CardType.Number));
     }
     
     public override string ToString()

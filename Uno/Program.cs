@@ -29,7 +29,7 @@ public class Program
         var wilddraw4 = new Card() { Type = CardType.WildDraw4 };
 
         Card[] cards1 = { red5, red9, blue9, yellow1 };
-        Card[] cards2 = { blue9, blueSkip, blueReverse };
+        Card[] cards2 = { blue9, blueSkip };
         Card[] cards3 = { yellow1, blue9, red5 };
         var player1 = new Player();
         var player2 = new Player();
@@ -40,10 +40,7 @@ public class Program
 
         Console.WriteLine(player1.HasPlayableCard(new Card() { Color = Color.Green, Type = CardType.Draw2 }));
         Console.WriteLine(player2.HasPlayableCard(new Card() { Color = Color.Green, Type = CardType.Draw2 }));
-
-        Console.WriteLine(player1.MostCommonColor());
-        Console.WriteLine(player2.MostCommonColor());
-        Console.WriteLine(player3.MostCommonColor());
+        System.Console.WriteLine(blueSkip.Type);
 
     }
 }
