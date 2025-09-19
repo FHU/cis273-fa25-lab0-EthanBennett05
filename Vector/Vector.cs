@@ -34,7 +34,7 @@ public struct Vector
     }
     public double AngleBetween(Vector v)
     {
-        return Math.Acos(this.Dot(v) / (this.Magnitude * v.Magnitude));
+        return Math.Acos(this.Dot(v) / (this.Magnitude * v.Magnitude)) *180/Math.PI;
     }
 
     public Vector Multiply(double scalar) => new Vector(X * scalar, Y * scalar);
@@ -82,6 +82,11 @@ public struct Vector
         return Normalize(v);
     }
 
+    public override string ToString()
+    {
+        return $"<{X}, {Y}>";
+    }
+
     // Overloaded operators 
     public static Vector operator +(Vector v1, Vector v2)
     {
@@ -95,17 +100,17 @@ public struct Vector
 
     public static double operator *(Vector v1, Vector v2)
     {
-        return default;
+        return v1.Dot(v2);
     }
 
     public static Vector operator *(Vector v1, double scalar)
     {
-        return default;
+        return v1.Multiply(scalar);
     }
 
      public static Vector operator /(Vector v1, double scalar)
     {
-        return default;
+        return v1.Divide(scalar);
     }
 
 
